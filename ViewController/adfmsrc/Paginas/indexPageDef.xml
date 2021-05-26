@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="indexPageDef" Package="Paginas">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Departments1" RangeSize="25" DataControl="AppModuleDataControl" id="Departments1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="Employees1" RangeSize="25" DataControl="AppModuleDataControl" id="Employees1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="Employees1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Employees1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Departments1Iterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Departments1Iterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Departments1Iterator" id="ManagerId">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Departments1Iterator" id="LocationId">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Departments1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Departments1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Departments1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Departments1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="Employees1Iterator" id="Employees1">
+      <nodeDefinition DefName="model.EmployeesVO" Name="Employees10">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="Salary"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="ManagerId"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
